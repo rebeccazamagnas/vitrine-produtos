@@ -1,59 +1,88 @@
-# VitrineAda
+# 🛍️ Vitrine de Produtos - Angular 17
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+Projeto desenvolvido em **Angular 17** como estudo prático de **consumo de API REST** (DummyJSON).  
+A aplicação simula uma vitrine de produtos com carrinho de compras, integrando boas práticas de arquitetura e recursos modernos do Angular.  
 
-## Development server
+---
 
-To start a local development server, run:
+## ⚙️ Tecnologias Utilizadas
+- [Angular 17](https://angular.dev) (Standalone Components)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Bootstrap](https://getbootstrap.com/) (estilização)
+- [DummyJSON API](https://dummyjson.com/) (dados fake)
 
+---
+
+## 🚀 Como rodar o projeto
+
+### 1) Clonar o repositório
 ```bash
-ng serve
+git clone https://github.com/rebeccazamagnas/vitrine-produtos.git
+cd vitrine-produtos
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### 2) Instalar dependências
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### 3) Rodar servidor de desenvolvimento
 ```bash
-ng generate --help
+npm start
+# ou
+npx ng serve -o
 ```
 
-## Building
+👉 Acesse em: [http://localhost:4200](http://localhost:4200)
 
-To build the project run:
+---
 
-```bash
-ng build
+## 📂 Estrutura de Pastas
+```
+src/
+  app/
+    models/          # Interfaces (ex.: IProduct)
+    services/        # ProductService (API) e CartService (carrinho)
+    components/      # Header e ProductCard
+    pages/           # ProductsList, ProductDetails, Checkout
+  styles.scss        # Import do Bootstrap
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 🔗 Endpoints usados (DummyJSON)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Listar todos** → [https://dummyjson.com/products](https://dummyjson.com/products)  
+- **Detalhar por ID** → [https://dummyjson.com/products/:id](https://dummyjson.com/products/:id)  
+- **Buscar (opcional)** → [https://dummyjson.com/products/search?q=termo](https://dummyjson.com/products/search?q=termo)  
 
-```bash
-ng test
-```
+### Observações úteis
+- A API retorna **30 itens por padrão**; é possível usar `limit/skip`.  
+- Para filtrar no cliente, pode-se usar `limit=0` para trazer todos os itens de uma vez.  
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🧩 Conceitos de Angular aplicados
+- **Standalone Components** (sem NgModule)  
+- **Controle de fluxo moderno**: `@if` e `@for`  
+- **Data Binding**: interpolation, property e event binding  
+- **Pipes**: `currency` (preço) e `uppercase` (título nos detalhes)  
+- **Services + DI**: ProductService e CartService  
+- **HTTP Client (withFetch)**: consumo da API via HttpClient  
+- **Reactive Forms**: FormGroup, FormControl, Validators  
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## ✨ Melhorias Futuras
+- Paginação real com `limit/skip`  
+- Filtros por categoria (endpoints de categorias da DummyJSON)  
+- Persistência do carrinho (**localStorage**)  
+- Página dedicada do carrinho (listar/remover itens, totais)  
+- Deploy no **Vercel** ou **Netlify**  
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 👩‍💻 Autoria
+Projeto criado como estudo prático de **Angular 17 + API REST** por:  
+**Rebecca Zamagna**  
+🔗 [LinkedIn](https://www.linkedin.com/in/rebeccazamagnas/) | [GitHub](https://github.com/rebeccazamagnas)
