@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="m-0">Produtos</h2>
+  <input class="form-control w-auto" type="search" placeholder="Buscar..."
+         [formControl]="search" style="min-width:260px">
+</div>
+
+@if (isLoading) {
+  <p class="text-muted">Carregando...</p>
+} @else {
+  @if (filtered.length === 0) {
+    <p class="text-muted">Nenhum produto encontrado.</p>
+  } @else {
+    <div class="row g-3">
+      @for (p of filtered; track p.id) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <app-product-card [product]="p"></app-product-card>
+        </div>
+      }
+    </div>
+  }
+}
